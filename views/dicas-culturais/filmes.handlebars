@@ -1,0 +1,79 @@
+<title>Filmes Recomendados - Meninas e Mulheres na Ciência</title>
+<meta name="description" content='Aqui você encontra filmes com a temática "Meninas e Mulheres na CiênciaR"'>
+<link rel="stylesheet" type="text/css" href="/css/styles-dicas-culturais.css">
+<style>
+  header {
+    background-color: #3d5a80;
+  }
+
+  footer {
+    background-color: #314a6b;
+    color: #FFF;
+  }
+
+  footer a {
+    color: #FFF;
+  }
+</style>
+</head>
+
+<body>
+  {{>main-header}}
+  <main>
+    <section>
+      <div class="titulo-com-seta">
+        <a class="botao-voltar-dicas-culturais" href="/dicas-culturais/"><img
+            src="/imagens/dicas-culturais/setaIcone.png"></a>
+        <h2 class="titulo-section">Filmes Recomendados</h2>
+      </div>
+      <ul class="lista-recomendacoes">
+        {{#each filmes}}
+        <li>
+          {{titulo}}
+        </li>
+        <p>
+          {{sinopse}}
+        </p>
+        <img src="{{caminhoImagem}}">
+
+
+        {{else}}
+        <p>Em breve!</p>
+
+        {{/each}}
+      </ul>
+
+
+    </section>
+    <section>
+      {{#if ultimaPagina}}
+      <table class="tabela-pagina">
+        <tr>
+          {{#if botaoPrimeiraPagina}}
+          <td><a href="/dicas-culturais/filmes?pagina='1'">1</a></td>
+          <td>...</td>
+          {{/if}}
+          {{#if paginaAnterior}}
+          <td><a href="/dicas-culturais/filmes?pagina={{paginaAnterior}}">←</a>
+          </td>
+          {{/if}}
+          <td class="pagina-atual">Página {{paginaAtual}}</td>
+          {{#if proximaPagina}}
+          <td><a href="/dicas-culturais/filmes?pagina={{proximaPagina}}">→</a>
+          </td>
+          {{#if botaoUltimaPagina}}
+          <td>...</td>
+          <td><a href="/dicas-culturais/filmes?pagina={{ultimaPagina}}">{{ultimaPagina}}</a>
+          </td>
+          {{/if}}
+          {{/if}}
+        </tr>
+      </table>
+      {{/if}}
+    </section>
+
+  </main>
+  {{>main-footer}}
+</body>
+
+</html>
